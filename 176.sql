@@ -1,0 +1,13 @@
+create database leetcode176;
+use leetcode176;
+set SQL_SAFE_UPDATES = 0;
+create table Employee(Id int,Salary int);
+insert into Employee values(1,100);
+insert into Employee values(2,200);
+insert into Employee values(3,300);
+update Employee set Salary=300 where Id=1;
+update Employee set Salary=300 where Id=2;
+update Employee set Salary=100 where Id=3;
+select * from Employee;
+select max(Salary) SecondHighestSalary from Employee where Salary<(select max(Salary) from Employee);
+drop table Employee;

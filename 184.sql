@@ -1,0 +1,16 @@
+create database leetcode184;
+use leetcode184;
+create table Employee(Id int,Name varchar(20),Salary int,DepartmentId int);
+insert into Employee values(1,'Joe',70000,1);
+insert into Employee values(2,'Henry',80000,2);
+insert into Employee values(3,'Sam',60000,2);
+insert into Employee values(4,'Max',90000,1);
+select * from Employee;
+create table Department(Id int,Name varchar(20));
+insert into Department values(1,'IT');
+insert into Department values(2,'Sales');
+select * from Department;
+drop table Department;
+select d.Name Department,min(d.Id),max(Salary) Salary from Employee e left join Department d on e.DepartmentId=d.Id group by d.Name;
+select * from Employee inner join Department on Employee.DepartmentId=Department.Id;
+select Department,Name Employee,Employee.Salary from Employee inner join (select d.Name Department,min(d.Id) Id,max(Salary) Salary from Employee e left join Department d on e.DepartmentId=d.Id group by d.Name) temp on(Employee.Salary=temp.Salary && Employee.DepartmentId=temp.Id);

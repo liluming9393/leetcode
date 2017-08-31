@@ -1,0 +1,10 @@
+create database leetcode182;
+use leetcode182;
+create table Person(id int,email varchar(20));
+desc Person;
+insert into Person values(1,'a@b.com');
+insert into Person values(2,'c@d.com');
+insert into Person values(3,'a@b.com');
+select * from person;
+select email from person group by email having count(*)>1;
+drop table person;

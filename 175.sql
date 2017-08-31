@@ -1,0 +1,13 @@
+create database leetcode175;
+use leetcode175;
+create table Person(PersonId int primary key,FirstName varchar(20),LastName varchar(20));
+desc Person;
+create table Address(AddressId int primary key,PersonId int,City varchar(20),State varchar(20));
+desc Address;
+insert into Person values(1,'aaa','bbb');
+insert into Person values(2,'ccc','ddd');
+insert into Person values(3,'eee','fff');
+select * from Person;
+insert into Address values(1,1,'a1','b1');
+insert into Address values(2,2,'c2','d2');
+select p.FirstName,p.LastName,a.City,a.State from Person p left join Address a on p.PersonId=a.PersonId;
